@@ -53,11 +53,13 @@ else()
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -g")
 endif()
 
+# Bypass C++17 does not allow dynamic exception specifications error
+# set(CXXFLAGS "-std=c++14")
+
 if(CMAKE_TOOLCHAIN_FILE)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DMXE")
   set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -DMXE")
 endif(CMAKE_TOOLCHAIN_FILE)
-
 
 ### CMake Configuration ###
 option (ENABLE_TESTS "Build the unit tests" FALSE)
